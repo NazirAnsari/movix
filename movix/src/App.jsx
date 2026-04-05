@@ -18,7 +18,6 @@ function App() {
   // const url = useSelector((state) => state.url); 
   //or
   const { url } = useSelector((state) => state.home)
-  console.log("object", url)
 
   useEffect(() => {
     fetchApiConfig();
@@ -34,7 +33,6 @@ function App() {
           profile: res?.images?.secure_base_url + "original",
         }
         dispatch(homeSliceActions.getApiConfiguration(url))
-        console.log(url)
       })
   }
 

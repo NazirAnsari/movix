@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import dayjs from "dayjs";
 import ContentWrapper from '../contentWrapper/ContentWrapper';
-import Img from '../lazyLoadImage/img';
+import Img from '../lazyLoadImage/Img';
 import PosterFallback from '../../assets/no-poster.png'
 import './style.scss'
 import CircleRating from '../circleRating/CircleRating';
 import Genres from '../genres/Genres';
 
-const Carousel = ({ data, loading, endPoint }) => {
+const Carousel = ({ data, loading, endPoint, title }) => {
     const carouselContainer = useRef();
     const { url } = useSelector((state) => state.home);
     const navigate = useNavigate();
@@ -39,6 +39,11 @@ const Carousel = ({ data, loading, endPoint }) => {
     return (
         <div className='carousel'>
             <ContentWrapper>
+                {title && (
+                    <div className='carouselTitle'>
+                        {title}
+                    </div>
+                )}
                 <BsFillArrowLeftCircleFill
                     className="carouselLeftNav arrow"
                     onClick={() => navigation("left")}
